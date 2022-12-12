@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+<style>
+        body{
+            height:100%;
+            }
+            #bg{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgb(140, 56, 153),
+            rgb(187, 89, 177));
+            z-index: 1;
+            }
+            .cen{
+            display: flex;
+            justify-content: center;
+            z-index:2;
+            }
+            #clock {
+            position: absolute;
+            font-size: 100px;
+            width: 850px;
+            margin: 200px;
+            text-align: center;
+            color:rgb(239, 221, 232);
+            font-family: "Orbitron","Helvetica Neue","sans-serif";
+            border: 5px solid rgb(249, 255, 255);
+            border-radius: 20px;
+            z-index:2;
+            }
+            #clock:hover {
+            position: absolute;
+            font-size: 100px;
+            width: 850px;
+            margin: 200px;
+            text-align: center;
+            color: rgb(12, 4, 32);
+            background-image: linear-gradient(to right, rgb(182, 151,
+            196), rgb(200, 191, 197));
+            font-family: "Orbitron","Helvetica Neue","sans-serif";
+            2
+            border: 5px solid rgb(39, 4, 52);
+            border-radius: 20px;
+            z-index:2;
+            }
+            
+</style>
+
+
+
+
+    </head>
+    <body>
+
+        <div id="bg"></div>
+        <div class="cen">
+        <div id="clock">8:10:45</div>
+        </div>
+         
+
+        <script>
+setInterval(showTime, 1000);
+function showTime() {
+let time = new Date();
+// time is an object
+console.log(time);
+let hour = time.getHours();
+let min = time.getMinutes();
+let sec = time.getSeconds();
+am_pm = "AM";
+if (hour > 12) {
+hour -= 12;
+am_pm = "PM";
+}
+if (hour == 0) {
+hr = 12;
+am_pm = "AM";
+}
+hour = hour < 10 ? "0" + hour : hour;
+min = min < 10 ? "0" + min : min;
+sec = sec < 10 ? "0" + sec : sec;
+let currentTime = hour + ":"
++ min + ":" + sec + am_pm;
+document.getElementById("clock")
+.innerHTML = currentTime;
+}
+showTime();
+
+        </script>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
